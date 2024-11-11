@@ -79,7 +79,9 @@ class FileProcessor(FileProcessorInterface):
         for i, row in df_hex.iterrows():
             try:
                 geometry_for_row = {"type": "Polygon", "coordinates": [h3.cell_to_boundary(h=row["hex_id"])]}
-                feature = Feature(geometry=geometry_for_row, id=row["hex_id"], properties={column_name: row[column_name]})
+                feature = Feature(geometry=geometry_for_row,
+                                  id=row["hex_id"],
+                                  properties={column_name: row[column_name]})
                 list_features.append(feature)
             except:
                 print("An exception occurred for hex " + row["hex_id"])
@@ -173,7 +175,8 @@ class FileProcessor(FileProcessorInterface):
                     except KeyError as name_not_exists:
                         pass
 
-                    query = "INSERT INTO table_name (osm_id, name, ref, lon, lat) VALUES ({osm_id:n}, \'{name}\', \'{ref}\', {lon}, {lat});\n".format(
+                    query = ("INSERT INTO table_name (osm_id, name, ref, lon, lat)"
+                             "VALUES ({osm_id:n}, \'{name}\', \'{ref}\', {lon}, {lat});\n").format(
                         osm_id=node.id, name=name, ref=ref, lon=node.lon, lat=node.lat)
                     queries.append(query)
 

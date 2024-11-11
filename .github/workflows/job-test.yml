@@ -27,10 +27,10 @@ jobs:
       - name: View poetry --help
         run: poetry --help
 
-      - name: View poetry --help
+      - name: Install
         run: poetry install
 
-      - name: View poetry --help
+      - name: Run test
         run: poetry run pytest
 
   codestyle:
@@ -56,8 +56,8 @@ jobs:
       - name: View poetry --help
         run: poetry --help
 
-      - name: View poetry --help
+      - name: Install
         run: poetry install
 
-      - name: View poetry --help
+      - name: Run codestyle
         run: poetry run pycodestyle red_forest
