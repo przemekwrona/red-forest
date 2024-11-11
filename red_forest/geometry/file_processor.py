@@ -153,7 +153,11 @@ class FileProcessor(FileProcessorInterface):
 
             if node.is_node():
                 if node.location.valid():
-                    folium.Circle(location=[node.lat, node.lon], radius=2, fill=True, color='#3388FF', fillColor='#3388FF').add_to(folium_map)
+                    folium.Circle(location=[node.lat, node.lon],
+                                  radius=2,
+                                  fill=True,
+                                  color='#3388FF',
+                                  fillColor='#3388FF').add_to(folium_map)
 
         print("")
 
