@@ -48,8 +48,10 @@ class NodeProcessor(FileProcessorInterface):
                 except KeyError:
                     pass
 
-                query = ("INSERT INTO table_name (osm_id, name, ref, lon, lat) VALUES ({osm_id:n}, \'{name}\', \'{ref}\', {lon}, {lat});\n").format(
-                    osm_id=node.id, name=name, ref=ref, lon=node.lon, lat=node.lat)
+                query = ("INSERT INTO table_name (osm_id, name, ref, lon, lat)"
+                         " VALUES ({osm_id:n}, \'{name}\', \'{ref}\', {lon}, {lat});\n"
+                         .format(osm_id=node.id, name=name, ref=ref, lon=node.lon, lat=node.lat))
+
                 queries.append(query)
 
         return queries
