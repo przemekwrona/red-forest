@@ -42,10 +42,30 @@ jobs:
       - name: Run image
         uses: abatilo/actions-poetry@v2
         with:
-          poetry-version: "1.8.4"
+          poetry-version: "latest"
 
       - name: Install poetry
         run: poetry install
 
       - name: Run codestyle
         run: poetry run pycodestyle red_forest
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - name: Run image
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: "latest"
+
+      - name: Install poetry
+        run: poetry install
+
+      - name: Run codestyle
+        run: poetry run pylint red_forest
