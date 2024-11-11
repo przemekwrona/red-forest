@@ -3,7 +3,6 @@ import geopandas
 import folium
 import h3
 from shapely import Point
-from shapely.geometry import Polygon, LineString
 from geojson import Feature, FeatureCollection
 import json
 import matplotlib
@@ -50,58 +49,24 @@ class FileProcessor:
         self._config = config
         return self
 
-    def append(self, data, folium_map):
-        polygon_json = geopandas.GeoSeries(data).to_json()
-        folium_geojson = folium.GeoJson(data=polygon_json, style_function=lambda x: self._config)
-        folium_geojson.add_to(folium_map)
+    def to_geodata_frame(self):
+        if self._is_with_areas:
+            return area_processor.AreaProcessor(self._file_processor).to_geo_dataframe()
+        elif self._is_with_locations:
+            return way_processor.WayProcessor(self._file_processor).to_geo_dataframe()
+        else:
+            return node_processor.NodeProcessor(self._file_processor).to_geo_dataframe()
 
     def plot(self, folium_map):
-        for node in self._file_processor:
-            if node.is_area():
-                for outer in node.outer_rings():
-                    lat_point_list = []
-                    lon_point_list = []
+        if self._is_with_areas:
+            df = area_processor.AreaProcessor(self._file_processor).to_geo_dataframe()
+        elif self._is_with_locations:
+            df = way_processor.WayProcessor(self._file_processor).to_geo_dataframe()
+        else:
+            df = node_processor.NodeProcessor(self._file_processor).to_geo_dataframe()
 
-                    for n in outer:
-                        if n.location.valid():
-                            lat_point_list.append(n.lat)
-                            lon_point_list.append(n.lon)
-
-                    holes = []
-
-                    for inner in node.inner_rings(outer):
-                        lat_point_holes = []
-                        lon_point_holes = []
-
-                        for n in inner:
-                            if n.location.valid():
-                                lat_point_holes.append(n.lat)
-                                lon_point_holes.append(n.lon)
-
-                        inner_hole = zip(lon_point_holes, lat_point_holes)
-                        holes.append(inner_hole)
-
-                    polygon_geom = Polygon(zip(lon_point_list, lat_point_list), holes)
-
-                    self.append(polygon_geom, folium_map)
-
-            if node.is_way():
-                lat_point_list = []
-                lon_point_list = []
-
-                for way in node.nodes:
-                    if way.location.valid():
-                        lat_point_list.append(way.lat)
-                        lon_point_list.append(way.lon)
-
-                polygon_way = LineString(zip(lon_point_list, lat_point_list))
-
-                if not polygon_way.is_empty:
-                    self.append(polygon_way, folium_map)
-
-            if node.is_node():
-                if node.location.valid():
-                    folium.Circle(location=[node.lat, node.lon], radius=2, fill=True, color='#3388FF', fillColor='#3388FF').add_to(folium_map)
+        folium_geojson = folium.GeoJson(data=df["geometry"].to_json(), style_function=lambda x: self._config)
+        folium_geojson.add_to(folium_map)
 
     def hexagons_dataframe_to_geojson(self, df_hex, file_output=None, column_name="value"):
         """
@@ -214,11 +179,3 @@ class FileProcessor:
         with open(path, "w") as file:
             for query in queries:
                 file.write(query)
-
-    def to_geodata_frame(self):
-        if self._is_with_areas:
-            return area_processor.AreaProcessor(self._file_processor).to_geo_dataframe()
-        elif self._is_with_locations:
-            return way_processor.WayProcessor(self._file_processor).to_geo_dataframe()
-        else:
-            return node_processor.NodeProcessor(self._file_processor).to_geo_dataframe()
