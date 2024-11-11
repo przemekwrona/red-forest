@@ -7,13 +7,14 @@ from geojson import Feature, FeatureCollection
 import json
 import matplotlib
 from red_forest.geometry import builder, node_processor, area_processor, way_processor
+from red_forest.geometry.file_processor_interface import FileProcessorInterface
 
 
 def get_color(custom_cm, val, vmin, vmax):
     return matplotlib.colors.to_hex(custom_cm((val - vmin) / (vmax - vmin)))
 
 
-class FileProcessor:
+class FileProcessor(FileProcessorInterface):
 
     def __init__(self, indata):
         self._config = None

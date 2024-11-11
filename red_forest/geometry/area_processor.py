@@ -1,8 +1,10 @@
 import geopandas as gpd
 from shapely import Polygon
 
+from red_forest.geometry.file_processor_interface import FileProcessorInterface
 
-class AreaProcessor:
+
+class AreaProcessor(FileProcessorInterface):
 
     def __init__(self, area_processor):
         self._area_processor = area_processor

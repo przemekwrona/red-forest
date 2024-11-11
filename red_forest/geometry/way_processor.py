@@ -1,8 +1,10 @@
 import geopandas as gpd
 from shapely import LineString
 
+from red_forest.geometry.file_processor_interface import FileProcessorInterface
 
-class WayProcessor:
+
+class WayProcessor(FileProcessorInterface):
 
     def __init__(self, way_processor):
         self._way_processor = way_processor
