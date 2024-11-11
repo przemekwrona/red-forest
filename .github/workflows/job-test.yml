@@ -12,6 +12,9 @@ jobs:
         # poetry-version: ["latest", "main", "1.8.4"]
         # os: [ ubuntu-22.04, macos-latest, windows-latest ]
     runs-on: ${{ matrix.os }}
+    needs:
+      - codestyle
+      - lint
     steps:
       - uses: actions/checkout@v4
 
