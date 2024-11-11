@@ -13,7 +13,7 @@ class TestWayProcessor(TestCase):
 
     def test_export_bus_stops(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
         highway_secondary_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("highway", "secondary"))).with_locations()
 
         # when
