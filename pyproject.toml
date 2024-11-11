@@ -19,6 +19,9 @@ matplotlib = "^3.9.2"
 pytest = "^8.3.3"
 
 
+[tool.poetry.group.dev.dependencies]
+pycodestyle = "^2.12.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
