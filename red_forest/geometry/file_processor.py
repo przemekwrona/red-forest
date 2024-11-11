@@ -1,10 +1,10 @@
+import json
 import osmium
 import geopandas as gpd
 import folium
 import h3
 from shapely import Point
 from geojson import Feature, FeatureCollection
-import json
 import matplotlib
 from red_forest.geometry import node_processor, area_processor, way_processor
 from red_forest.geometry.file_processor_interface import FileProcessorInterface
@@ -176,7 +176,7 @@ class FileProcessor(FileProcessorInterface):
                     try:
                         name = node.tags['name']
                         name = name.replace("'", "''")
-                    except KeyError as name_not_exists:
+                    except KeyError:
                         pass
 
                     query = ("INSERT INTO table_name (osm_id, name, ref, lon, lat)"
