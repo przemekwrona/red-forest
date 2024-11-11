@@ -9,7 +9,7 @@ class AreaProcessor(FileProcessorInterface):
     def __init__(self, area_processor):
         self._area_processor = area_processor
 
-    def to_geo_dataframe(self):
+    def to_geo_dataframe(self) -> gpd.GeoDataFrame:
         polygons = []
         tag_name = []
 

@@ -1,5 +1,5 @@
 import osmium
-import geopandas
+import geopandas as gpd
 import folium
 import h3
 from shapely import Point
@@ -50,7 +50,7 @@ class FileProcessor(FileProcessorInterface):
         self._config = config
         return self
 
-    def to_geodata_frame(self):
+    def to_geodata_frame(self) -> gpd.GeoDataFrame:
         if self._is_with_areas:
             return area_processor.AreaProcessor(self._file_processor).to_geo_dataframe()
         elif self._is_with_locations:
@@ -98,7 +98,7 @@ class FileProcessor(FileProcessorInterface):
                     points.append(point)
 
         resolution = 8
-        gdf = geopandas.GeoDataFrame({'geometry': points}, crs="EPSG:4326")
+        gdf = gpd.GeoDataFrame({'geometry': points}, crs="EPSG:4326")
         hex_ids = gdf.apply(lambda row: h3.latlng_to_cell(row.geometry.y, row.geometry.x, resolution), axis=1)
         gdf = gdf.assign(hex_id=hex_ids.values)
 
