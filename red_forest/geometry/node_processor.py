@@ -8,7 +8,7 @@ class NodeProcessor(FileProcessorInterface):
     def __init__(self, node_processor):
         self._node_processor = node_processor
 
-    def to_geo_dataframe(self):
+    def to_geo_dataframe(self) -> gpd.GeoDataFrame:
         lat = []
         lon = []
         tag_name = []

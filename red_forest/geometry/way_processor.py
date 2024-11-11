@@ -9,7 +9,7 @@ class WayProcessor(FileProcessorInterface):
     def __init__(self, way_processor):
         self._way_processor = way_processor
 
-    def to_geo_dataframe(self):
+    def to_geo_dataframe(self) -> gpd.GeoDataFrame:
         ways = []
         tag_name = []
 
