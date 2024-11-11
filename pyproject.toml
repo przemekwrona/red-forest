@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "red-forest"
+version = "0.1.0"
+description = ""
+authors = ["przemekwrona <przemekwrona25@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.2.3"
+geopandas = "^1.0.1"
+folium = "^0.17.0"
+osmium = "^4.0.1"
+alive-progress = "^3.1.5"
+tqdm = "^4.66.5"
+h3 = "^4.1.2"
+geojson = "^3.1.0"
+matplotlib = "^3.9.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
