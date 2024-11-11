@@ -77,14 +77,14 @@ class FileProcessor(FileProcessorInterface):
         list_features = []
 
         for i, row in df_hex.iterrows():
-            try:
-                geometry_for_row = {"type": "Polygon", "coordinates": [h3.cell_to_boundary(h=row["hex_id"])]}
-                feature = Feature(geometry=geometry_for_row,
-                                  id=row["hex_id"],
-                                  properties={column_name: row[column_name]})
-                list_features.append(feature)
-            except:
-                print("An exception occurred for hex " + row["hex_id"])
+            # try:
+            geometry_for_row = {"type": "Polygon", "coordinates": [h3.cell_to_boundary(h=row["hex_id"])]}
+            feature = Feature(geometry=geometry_for_row,
+                              id=row["hex_id"],
+                              properties={column_name: row[column_name]})
+            list_features.append(feature)
+            # except:
+            #     print("An exception occurred for hex " + row["hex_id"])
 
         feat_collection = FeatureCollection(list_features)
         geojson_result = json.dumps(feat_collection)
