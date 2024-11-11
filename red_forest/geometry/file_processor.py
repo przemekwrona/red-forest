@@ -6,7 +6,7 @@ from shapely import Point
 from geojson import Feature, FeatureCollection
 import json
 import matplotlib
-from red_forest.geometry import builder, node_processor, area_processor, way_processor
+from red_forest.geometry import node_processor, area_processor, way_processor
 from red_forest.geometry.file_processor_interface import FileProcessorInterface
 
 
@@ -133,8 +133,8 @@ class FileProcessor(FileProcessorInterface):
         aaa = []
         for node in self._file_processor:
             if node.is_area():
-                polygons = builder.area_to_polygon(node)
-                aaa = aaa + polygons
+                # polygons = builder.area_to_polygon(node)
+                # aaa = aaa + polygons
                 print("")
 
             # if node.is_way():
