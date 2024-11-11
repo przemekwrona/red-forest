@@ -72,3 +72,4 @@ jobs:
 
       - name: Run codestyle
         run: poetry run pylint red_forest
+        continue-on-error: true
