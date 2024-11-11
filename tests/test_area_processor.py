@@ -15,7 +15,7 @@ class TestAreaProcessor(TestCase):
         farmland_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("landuse", "farmland"))).with_areas()
 
         # when
-        farmlands = AreaProcessor(farmland_processor).to_geo_json()
+        farmlands = AreaProcessor(farmland_processor).to_geo_dataframe()
 
         # then
         assert farmlands is not None
@@ -54,7 +54,7 @@ class TestAreaProcessor(TestCase):
         railway_platform_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("railway", "platform"))).with_areas()
 
         # when
-        railway_platform = AreaProcessor(railway_platform_processor).to_geo_json()
+        railway_platform = AreaProcessor(railway_platform_processor).to_geo_dataframe()
 
         # then
         assert railway_platform is not None

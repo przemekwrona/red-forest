@@ -217,8 +217,8 @@ class FileProcessor:
 
     def to_geodata_frame(self):
         if self._is_with_areas:
-            return area_processor.AreaProcessor(self._file_processor).to_geo_json()
+            return area_processor.AreaProcessor(self._file_processor).to_geo_dataframe()
         elif self._is_with_locations:
-            return way_processor.WayProcessor(self._file_processor).to_geo_json()
+            return way_processor.WayProcessor(self._file_processor).to_geo_dataframe()
         else:
-            return node_processor.NodeProcessor(self._file_processor).to_geo_json()
+            return node_processor.NodeProcessor(self._file_processor).to_geo_dataframe()

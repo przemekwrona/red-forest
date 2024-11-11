@@ -7,7 +7,7 @@ class WayProcessor:
     def __init__(self, way_processor):
         self._way_processor = way_processor
 
-    def to_geo_json(self):
+    def to_geo_dataframe(self):
         ways = []
         tag_name = []
 

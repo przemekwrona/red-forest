@@ -7,7 +7,7 @@ class AreaProcessor:
     def __init__(self, area_processor):
         self._area_processor = area_processor
 
-    def to_geo_json(self):
+    def to_geo_dataframe(self):
         polygons = []
         tag_name = []
 

@@ -17,7 +17,7 @@ class TestWayProcessor(TestCase):
         highway_secondary_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("highway", "secondary"))).with_locations()
 
         # when
-        highway_secondary = WayProcessor(highway_secondary_processor).to_geo_json()
+        highway_secondary = WayProcessor(highway_secondary_processor).to_geo_dataframe()
 
         # then
         assert highway_secondary is not None
