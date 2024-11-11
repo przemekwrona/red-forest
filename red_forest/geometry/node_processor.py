@@ -1,7 +1,9 @@
 import geopandas as gpd
 
+from red_forest.geometry.file_processor_interface import FileProcessorInterface
 
-class NodeProcessor:
+
+class NodeProcessor(FileProcessorInterface):
 
     def __init__(self, node_processor):
         self._node_processor = node_processor
