@@ -6,7 +6,7 @@ class NodeProcessor:
     def __init__(self, node_processor):
         self._node_processor = node_processor
 
-    def to_geo_json(self):
+    def to_geo_dataframe(self):
         lat = []
         lon = []
         tag_name = []

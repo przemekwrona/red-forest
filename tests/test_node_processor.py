@@ -15,7 +15,7 @@ class TestNodeProcessor(TestCase):
         bus_stops_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("highway", "bus_stop")))
 
         # when
-        bus_stops = NodeProcessor(bus_stops_processor).to_geo_json()
+        bus_stops = NodeProcessor(bus_stops_processor).to_geo_dataframe()
 
         # then
         assert bus_stops is not None
@@ -48,7 +48,7 @@ class TestNodeProcessor(TestCase):
         shelter_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("amenity", "shelter")))
 
         # when
-        shelters = NodeProcessor(shelter_processor).to_geo_json()
+        shelters = NodeProcessor(shelter_processor).to_geo_dataframe()
 
         # then
         assert shelters is not None
