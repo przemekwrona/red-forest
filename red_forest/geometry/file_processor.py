@@ -49,23 +49,20 @@ class FileProcessor(FileProcessorInterface):
         self._config = config
         return self
 
-    def to_geodata_frame(self) -> gpd.GeoDataFrame:
+    def get_processor(self):
         if self._is_with_areas:
-            return area_processor.AreaProcessor(self._file_processor).to_geo_dataframe()
+            return area_processor.AreaProcessor(self._file_processor)
         elif self._is_with_locations:
-            return way_processor.WayProcessor(self._file_processor).to_geo_dataframe()
+            return way_processor.WayProcessor(self._file_processor)
         else:
-            return node_processor.NodeProcessor(self._file_processor).to_geo_dataframe()
+            return node_processor.NodeProcessor(self._file_processor)
+
+    def to_geodata_frame(self) -> gpd.GeoDataFrame:
+        return self.get_processor().to_geo_dataframe()
 
     def plot(self, folium_map):
-        if self._is_with_areas:
-            df = area_processor.AreaProcessor(self._file_processor).to_geo_dataframe()
-        elif self._is_with_locations:
-            df = way_processor.WayProcessor(self._file_processor).to_geo_dataframe()
-        else:
-            df = node_processor.NodeProcessor(self._file_processor).to_geo_dataframe()
-
-        folium_geojson = folium.GeoJson(data=df["geometry"].to_json(), style_function=lambda x: self._config)
+        data = self.to_geodata_frame()["geometry"].to_json()
+        folium_geojson = folium.GeoJson(data=data, style_function=lambda x: self._config)
         folium_geojson.add_to(folium_map)
 
     def hexagons_dataframe_to_geojson(self, df_hex, file_output=None, column_name="value"):
