@@ -70,6 +70,6 @@ jobs:
       - name: Install poetry
         run: poetry install
 
-      - name: Run codestyle
+      - name: Run lint
         run: poetry run pylint red_forest
         continue-on-error: true
