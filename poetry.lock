@@ -13,13 +13,13 @@ files = [
 
 [[package]]
 name = "alive-progress"
-version = "3.1.5"
+version = "3.2.0"
 description = "A new kind of Progress Bar, with real-time throughput, ETA, and very cool animations!"
 optional = false
-python-versions = ">=3.7, <4"
+python-versions = "<4,>=3.9"
 files = [
-    {file = "alive-progress-3.1.5.tar.gz", hash = "sha256:42e399a66c8150dc507602dff7b7953f105ef11faf97ddaa6d27b1cbf45c4c98"},
-    {file = "alive_progress-3.1.5-py3-none-any.whl", hash = "sha256:347220c1858e3abe137fa0746895668c04df09c5261a13dc03f05795e8a29be5"},
+    {file = "alive-progress-3.2.0.tar.gz", hash = "sha256:ede29d046ff454fe56b941f686f89dd9389430c4a5b7658e445cb0b80e0e4deb"},
+    {file = "alive_progress-3.2.0-py3-none-any.whl", hash = "sha256:0677929f8d3202572e9d142f08170b34dbbe256cc6d2afbf75ef187c7da964a8"},
 ]
 
 [package.dependencies]
@@ -910,43 +910,43 @@ files = [
 
 [[package]]
 name = "osmium"
-version = "4.0.1"
+version = "4.0.2"
 description = "Python bindings for libosmium, the data processing library for OSM data"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "osmium-4.0.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:37375c10f03f522f0035931a8ed8e6ee60183bfba5f8d3ae5bd5455e5ae8a102"},
-    {file = "osmium-4.0.1-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:ad6680fe0e50fc54b2c4100262987cceefe3ee3501a1bfbe2488700fa7cc8f42"},
-    {file = "osmium-4.0.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:202ee8279a422d7e71f686e4f24222cdd329db08b132d17a9af35da6efd37b53"},
-    {file = "osmium-4.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:121b955a87d1743be0bc5c819bbeb66ba58932f2abf25f4f1f8485c2baea6ad0"},
-    {file = "osmium-4.0.1-cp310-cp310-win_amd64.whl", hash = "sha256:6f0a6b828efaf083b8a70b797d0364707115ebe5ef0846a43b60c26e3caad88e"},
-    {file = "osmium-4.0.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:7a7da3cde8df8ef1522c592c653f9a1087c982c895345cc9a4a4d127c8c7d305"},
-    {file = "osmium-4.0.1-cp311-cp311-macosx_11_0_x86_64.whl", hash = "sha256:ec57639e901ea0e90977b295c2737b682e482e09f69182c1c0720b9d56fea971"},
-    {file = "osmium-4.0.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6c6710c0af4cd3332d8e0bd28902ff145781099954cf44dbda6155fbe6554324"},
-    {file = "osmium-4.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c16e22a973c07d3113a220ccb57a8b4fd6e905a95c1d9afcdbc0acb258a52688"},
-    {file = "osmium-4.0.1-cp311-cp311-win_amd64.whl", hash = "sha256:23a94e9c6fc7c84eb07a0068c8259e1e1581855a7dcbb94885528809977f4f7d"},
-    {file = "osmium-4.0.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:3cc42ee80e800bab2285fb3f49d9fadcde921f7e7142ffcd82bc768f545ba958"},
-    {file = "osmium-4.0.1-cp312-cp312-macosx_11_0_x86_64.whl", hash = "sha256:0f92757402d7c22ad529422d7ad6dca4272d8845320404720a85f3f288551985"},
-    {file = "osmium-4.0.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:67472b1d69d0176a0da4ffc2e2978d8a2a2ba4034a73e9b43a83f9836a7899f5"},
-    {file = "osmium-4.0.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:98a34bd49e77b8f911c48eace07d82fea5cfbf9c98cd15719def928911a2949d"},
-    {file = "osmium-4.0.1-cp312-cp312-win_amd64.whl", hash = "sha256:358fd8971536b2c6f04cca762db12968196d0d5a2b552b77310fe1cbd097575e"},
-    {file = "osmium-4.0.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:ec21ec135cbbe110baf721bf0dd3297f174bde0e5299e40ec17941f04bd6063f"},
-    {file = "osmium-4.0.1-cp313-cp313-macosx_11_0_x86_64.whl", hash = "sha256:891cd9c6477217b415b6ee8f6c8c47dbe0704ccd1253ea93587e6266c629142d"},
-    {file = "osmium-4.0.1-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:50048bd51bd069afe407179ca076ed5c066e23114034e1e6f8b10d2772280609"},
-    {file = "osmium-4.0.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9b7df7daac4458f873b0845f491edece2b091234569bc60e5186930e73b3c090"},
-    {file = "osmium-4.0.1-cp313-cp313-win_amd64.whl", hash = "sha256:9d511d4afe70414d4f2687ba38ed7a0a249183528e9a75f16a6a0f3e73e57399"},
-    {file = "osmium-4.0.1-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:188c24f8e6509b568b9878feb9e82bd88a1c6e883993e6a429b193bdea7e142c"},
-    {file = "osmium-4.0.1-cp37-cp37m-win_amd64.whl", hash = "sha256:3c8be9f7cb7f0b70d2025f1de49240dd9aac1b915524bbbcfffdaa85eb5c3db2"},
-    {file = "osmium-4.0.1-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:bfa151bd9c91ac4a715b5a9452b70482872d7a4cf13ea480799442be05c7db1b"},
-    {file = "osmium-4.0.1-cp38-cp38-macosx_11_0_x86_64.whl", hash = "sha256:e49bddaaacf2818974acaee03cc81e0aeab8404dbea98bc6a2451ab5702a2a78"},
-    {file = "osmium-4.0.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2732e91c3e2dcec579a91db5ae613495b63e7dc6570e993c726a94b11a970712"},
-    {file = "osmium-4.0.1-cp38-cp38-win_amd64.whl", hash = "sha256:9e16a93c54428a9f5443a732cde0b717ece8910ad9355ac4ee3758cffe51a8a8"},
-    {file = "osmium-4.0.1-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:d28390a786600265ee0b52a410eac4f4f672ddd08e87d549723cd39224431efb"},
-    {file = "osmium-4.0.1-cp39-cp39-macosx_11_0_x86_64.whl", hash = "sha256:14601dab67f70a5bdc702c4b736c1dcc365898b11ea409ac9e0be000d0344da5"},
-    {file = "osmium-4.0.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ffdece9b58b6ec5448e7c240ff3c6f1cc3bbdc22ef3f75454008ba362b55b3ec"},
-    {file = "osmium-4.0.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cac8a523bcc55c2b48eb27859b86fd2f37f23d584686c184d418f43317b2b15d"},
-    {file = "osmium-4.0.1-cp39-cp39-win_amd64.whl", hash = "sha256:c85f055d3ca4be3fb85332bbc33f6f50f2a02d09a717b5add16d96d46f2a9837"},
-    {file = "osmium-4.0.1.tar.gz", hash = "sha256:ce3a53be9b50e1258207c7f1f3552e2348ff18c78da50aba2b49af484430a8be"},
+    {file = "osmium-4.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:397a40028994c66e8eb26b93c1b77db955943cc4dcf596bdcfcf3fbf5d11785c"},
+    {file = "osmium-4.0.2-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:391c49663004eddd671a202a8a65f27a886f52b6389ebe407666c25017f59a08"},
+    {file = "osmium-4.0.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c5f2c9d8f45f7ca042e0ac1f332b6e13a410051c862f66467ad5199d91faa5af"},
+    {file = "osmium-4.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cb00523ad573b32a237875d0df1f7ac239da3270af03cf1889261d01aa9381b8"},
+    {file = "osmium-4.0.2-cp310-cp310-win_amd64.whl", hash = "sha256:4aa113c3c42fa2f01fb1649081d9a36f5cdcca262420bc3211c10650ecfff96d"},
+    {file = "osmium-4.0.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:b1da69b60bf4ebe18e0eab198c390484fe6f57c180a20c1a7ea0ee51bc97ec39"},
+    {file = "osmium-4.0.2-cp311-cp311-macosx_11_0_x86_64.whl", hash = "sha256:48f0263f1c7e9bc133a3071202eeb971de11608929bb33f6e9a7621d2aeb2a98"},
+    {file = "osmium-4.0.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c5b63068f145e331bcc2bb2c5bb02ff88642ad0996829bead434528def4f183a"},
+    {file = "osmium-4.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:af1779cbbc312eed22e592fb7eceff456a252ba5169b9b7731801372d6ac7f76"},
+    {file = "osmium-4.0.2-cp311-cp311-win_amd64.whl", hash = "sha256:b8a34895ab6eec8e1a97fa1119efe64f54ce12cee507104d96cbaf7014835b0a"},
+    {file = "osmium-4.0.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:a8d3fad10eed435d8a1b62496cb7a1630b41cef8e6a2161f6422c69c2e14bab1"},
+    {file = "osmium-4.0.2-cp312-cp312-macosx_11_0_x86_64.whl", hash = "sha256:17bc51c15dfadfcabeb3b2e0fcb8b7e1f332695534732def4f6e1ca3204109bf"},
+    {file = "osmium-4.0.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:48e0c6a5bf2044c2560ef08b2c2e33ffb763d1de39e9f7498091bdaa0708e0f2"},
+    {file = "osmium-4.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ba88f4efacda13f9c9b6acfb6e3336085f46c8253485e9d1797d7560bae0e4f5"},
+    {file = "osmium-4.0.2-cp312-cp312-win_amd64.whl", hash = "sha256:57b91afc4590e548764d3660d8c42aab1008bb01ed154f45a192179e584c4f03"},
+    {file = "osmium-4.0.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:ecf944a66e54b8057b47ac35e556c3ae62ea7dec5f2b57cbe501b142eeda969f"},
+    {file = "osmium-4.0.2-cp313-cp313-macosx_11_0_x86_64.whl", hash = "sha256:c049c55986ecceba66c03178ab6c31586e09e670e7b8c187eea5b8c292ba93d5"},
+    {file = "osmium-4.0.2-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7c0e8fc3cf2436f14a95a1c5357497769f5ba958c34b59ea8a743fc856104da0"},
+    {file = "osmium-4.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:839b8332079dcc07d5d547881504e1bc7710d40201e9c76eae58844cab11954b"},
+    {file = "osmium-4.0.2-cp313-cp313-win_amd64.whl", hash = "sha256:72111d748491a9a9b78f34db2bf389383317720a67b38be8efcc3e659144240c"},
+    {file = "osmium-4.0.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0caa221ddccea3599f0125b54557fe8fecf1378ec2ab37fbb8a5c593e03cd5f2"},
+    {file = "osmium-4.0.2-cp37-cp37m-win_amd64.whl", hash = "sha256:0b20a4e1ba0fdb3d0a7f5ebeee1fd705112f0d669b81ce9d3a9377ead45b9598"},
+    {file = "osmium-4.0.2-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:aac6259888ea6bf8915cf9a04d716777d51774483ca5885a7ccd8079cfdd0270"},
+    {file = "osmium-4.0.2-cp38-cp38-macosx_11_0_x86_64.whl", hash = "sha256:9d26e6f9db0b5f6729d6efbc28ed3ddeb60036a08e2d3718546fc257f2049ae2"},
+    {file = "osmium-4.0.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:82aa6cb703fa0ee2d982e67121d7189470b667f19685152626779f2b393e2683"},
+    {file = "osmium-4.0.2-cp38-cp38-win_amd64.whl", hash = "sha256:935bb3c1896a450f99414fab5f9ff969e8627ffd5d4066edbd49c0c92825a089"},
+    {file = "osmium-4.0.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:295e2869e56d086056a7d37a646cf36d8f1de710cc70f03b5a5f6c5c12baf545"},
+    {file = "osmium-4.0.2-cp39-cp39-macosx_11_0_x86_64.whl", hash = "sha256:a6d894b0fb69e2a85da394ca08b65e6415e3d7462215aefc09ee6ca06a9459ed"},
+    {file = "osmium-4.0.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0dd0406a0c02fc3f6ab66624d02eb8bf366559c0cd1b7b735c21d4772a080adc"},
+    {file = "osmium-4.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3a695c8f17e90264e22312646a6e3548cf978e61a23a3fd2692690b2d93d6203"},
+    {file = "osmium-4.0.2-cp39-cp39-win_amd64.whl", hash = "sha256:cfff64e277af3b60a32109a12767177bf7e2f3921c9759e3b8ff1a255d5b83ab"},
+    {file = "osmium-4.0.2.tar.gz", hash = "sha256:e227320e68fcee90df45f78cd2c383bda68d632d93e4aaf71fdc18aafda18aaf"},
 ]
 
 [package.dependencies]
@@ -958,13 +958,13 @@ tests = ["pytest", "pytest-httpserver", "shapely", "werkzeug"]
 
 [[package]]
 name = "packaging"
-version = "24.1"
+version = "24.2"
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "packaging-24.1-py3-none-any.whl", hash = "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"},
-    {file = "packaging-24.1.tar.gz", hash = "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"},
+    {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
+    {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
 ]
 
 [[package]]
@@ -1482,13 +1482,13 @@ files = [
 
 [[package]]
 name = "tqdm"
-version = "4.66.5"
+version = "4.67.0"
 description = "Fast, Extensible Progress Meter"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "tqdm-4.66.5-py3-none-any.whl", hash = "sha256:90279a3770753eafc9194a0364852159802111925aa30eb3f9d85b0e805ac7cd"},
-    {file = "tqdm-4.66.5.tar.gz", hash = "sha256:e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"},
+    {file = "tqdm-4.67.0-py3-none-any.whl", hash = "sha256:0cd8af9d56911acab92182e88d763100d4788bdf421d251616040cc4d44863be"},
+    {file = "tqdm-4.67.0.tar.gz", hash = "sha256:fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"},
 ]
 
 [package.dependencies]
@@ -1496,6 +1496,7 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [package.extras]
 dev = ["pytest (>=6)", "pytest-cov", "pytest-timeout", "pytest-xdist"]
+discord = ["requests"]
 notebook = ["ipywidgets (>=6)"]
 slack = ["slack-sdk"]
 telegram = ["requests"]
@@ -1552,13 +1553,13 @@ files = [
 
 [[package]]
 name = "zipp"
-version = "3.20.2"
+version = "3.21.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "zipp-3.20.2-py3-none-any.whl", hash = "sha256:a817ac80d6cf4b23bf7f2828b7cabf326f15a001bea8b1f9b49631780ba28350"},
-    {file = "zipp-3.20.2.tar.gz", hash = "sha256:bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"},
+    {file = "zipp-3.21.0-py3-none-any.whl", hash = "sha256:ac1bbe05fd2991f160ebce24ffbac5f6d11d83dc90891255885223d42b3cd931"},
+    {file = "zipp-3.21.0.tar.gz", hash = "sha256:2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4"},
 ]
 
 [package.extras]
@@ -1572,4 +1573,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "892798643ab94940a70d8036193a29b53e360bf6de43f397124d1b0be1293bfe"
+content-hash = "7b959f0e841974f129362631ed9913b6ce4d3b0f18d9c9ed31413f1f01eb384e"
