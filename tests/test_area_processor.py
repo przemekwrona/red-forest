@@ -11,7 +11,7 @@ class TestAreaProcessor(TestCase):
 
     def test_export_farmlands(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
         farmland_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("landuse", "farmland"))).with_areas()
 
         # when
@@ -50,7 +50,7 @@ class TestAreaProcessor(TestCase):
 
     def test_export_railway_platforms(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
         railway_platform_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("railway", "platform"))).with_areas()
 
         # when

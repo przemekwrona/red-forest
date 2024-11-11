@@ -11,7 +11,7 @@ class TestNodeProcessor(TestCase):
 
     def test_export_bus_stops(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
         bus_stops_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("highway", "bus_stop")))
 
         # when
@@ -44,7 +44,7 @@ class TestNodeProcessor(TestCase):
 
     def test_export_shelters(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
         shelter_processor = osmium.FileProcessor(osm_file).with_filter(osmium.filter.TagFilter(("amenity", "shelter")))
 
         # when

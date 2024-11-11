@@ -12,7 +12,7 @@ class TestFileProcessor(TestCase):
 
     def test_export_bus_stops_to_geopandas(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
 
         # when
         bus_stops = FileProcessor(osm_file).with_tag(("highway", "bus_stop")).to_geodata_frame()
@@ -44,7 +44,7 @@ class TestFileProcessor(TestCase):
 
     def test_export_farmlands_to_geopandas(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
 
         # when
         farmlands = FileProcessor(osm_file).with_tag(("landuse", "farmland")).with_areas().to_geodata_frame()
@@ -83,7 +83,7 @@ class TestFileProcessor(TestCase):
 
     def test_export_bus_stops(self):
         # given
-        osm_file = "resources/zalesie.pbf"
+        osm_file = "tests/resources/zalesie.pbf"
 
         # when
         highway_secondary = FileProcessor(osm_file).with_tag(("highway", "secondary")).with_locations().to_geodata_frame()
