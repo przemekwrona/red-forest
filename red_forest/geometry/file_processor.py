@@ -2,7 +2,6 @@ import osmium
 import geopandas as gpd
 import folium
 import h3
-from shapely import Point
 from geojson import Feature, FeatureCollection
 import json
 import matplotlib
@@ -90,32 +89,24 @@ class FileProcessor(FileProcessorInterface):
         geojson_result = json.dumps(feat_collection)
         return geojson_result
 
-    def hex(self, folium_map):
-        names = []
-        points = []
-        for node in self._file_processor:
-            if node.is_node():
-                if node.location.valid():
-                    point = Point(node.lat, node.lon)
-                    points.append(point)
-
-        resolution = 8
-        gdf = gpd.GeoDataFrame({'geometry': points}, crs="EPSG:4326")
-        hex_ids = gdf.apply(lambda row: h3.latlng_to_cell(row.geometry.y, row.geometry.x, resolution), axis=1)
+    def hex(self, folium_map, resolution=8):
+        gdf = self.to_geodata_frame()
+        hex_ids = gdf.apply(lambda row: h3.latlng_to_cell(row.geometry.x, row.geometry.y, resolution), axis=1)
         gdf = gdf.assign(hex_id=hex_ids.values)
 
-        dataset2001byhexid = gdf.groupby("hex_id", as_index=False).agg({"geometry": "count"})
+        nodes_by_hex_id = gdf.groupby("hex_id", as_index=False).agg({"geometry": "count"})
 
-        geojson_data = self.hexagons_dataframe_to_geojson(dataset2001byhexid, column_name='geometry')
+        geojson_data = self.hexagons_dataframe_to_geojson(nodes_by_hex_id, column_name='geometry')
 
         min_value = 0
-        max_value = dataset2001byhexid.geometry.max()
+        max_value = nodes_by_hex_id.geometry.max()
         column_name = 'geometry'
         custom_cm = matplotlib.cm.get_cmap('Blues')
 
         border_color = 'black'
         fill_opacity = 0.8
         name_layer = "Choropleth "
+
         folium.GeoJson(
             geojson_data,
             style_function=lambda feature: {
@@ -126,40 +117,6 @@ class FileProcessor(FileProcessorInterface):
             },
             name=name_layer
         ).add_to(folium_map)
-
-        print("")
-
-    def hex_area(self, folium_map):
-        aaa = []
-        for node in self._file_processor:
-            if node.is_area():
-                # polygons = builder.area_to_polygon(node)
-                # aaa = aaa + polygons
-                print("")
-
-            # if node.is_way():
-            #     lat_point_list = []
-            #     lon_point_list = []
-            #
-            #     for way in node.nodes:
-            #         if way.location.valid():
-            #             lat_point_list.append(way.lat)
-            #             lon_point_list.append(way.lon)
-            #
-            #     polygon_way = LineString(zip(lon_point_list, lat_point_list))
-            #
-            #     if not polygon_way.is_empty:
-            #         self.append(polygon_way, folium_map)
-
-            if node.is_node():
-                if node.location.valid():
-                    folium.Circle(location=[node.lat, node.lon],
-                                  radius=2,
-                                  fill=True,
-                                  color='#3388FF',
-                                  fillColor='#3388FF').add_to(folium_map)
-
-        print("")
 
     def to_sql(self, path):
         queries = []
