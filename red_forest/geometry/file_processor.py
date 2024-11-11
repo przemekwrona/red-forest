@@ -119,28 +119,6 @@ class FileProcessor(FileProcessorInterface):
         ).add_to(folium_map)
 
     def to_sql(self, path):
-        queries = []
-        for node in self._file_processor:
-            if node.is_node():
-                if node.location.valid():
-                    name = ''
-                    ref = ''
-                    try:
-                        ref = node.tags['ref']
-                    except KeyError as ref_not_exists:
-                        pass
-
-                    try:
-                        name = node.tags['name']
-                        name = name.replace("'", "''")
-                    except KeyError as name_not_exists:
-                        pass
-
-                    query = ("INSERT INTO table_name (osm_id, name, ref, lon, lat)"
-                             "VALUES ({osm_id:n}, \'{name}\', \'{ref}\', {lon}, {lat});\n").format(
-                        osm_id=node.id, name=name, ref=ref, lon=node.lon, lat=node.lat)
-                    queries.append(query)
-
         with open(path, "w") as file:
-            for query in queries:
+            for query in node_processor.NodeProcessor(self._file_processor).to_sql():
                 file.write(query)
