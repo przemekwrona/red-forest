@@ -15,31 +15,29 @@ class AreaProcessor(FileProcessorInterface):
 
         for area in self._area_processor:
             if area.is_area():
-                for outer in area.outer_rings():
-                    lat_point_list = []
-                    lon_point_list = []
+                for outer_ring in area.outer_rings():
+                    lat_polygon_points = []
+                    lon_polygon_points = []
 
-                    for n in outer:
-                        if n.location.valid():
-                            lat_point_list.append(n.lat)
-                            lon_point_list.append(n.lon)
+                    for outer_point in outer_ring:
+                        if outer_point.location.valid():
+                            lat_polygon_points.append(outer_point.lat)
+                            lon_polygon_points.append(outer_point.lon)
 
                     holes = []
 
-                    for inner in area.inner_rings(outer):
+                    for inner_ring in area.inner_rings(outer_ring):
                         lat_point_holes = []
                         lon_point_holes = []
 
-                        for n in inner:
-                            if n.location.valid():
-                                lat_point_holes.append(n.lat)
-                                lon_point_holes.append(n.lon)
+                        for inner_point in inner_ring:
+                            if inner_point.location.valid():
+                                lat_point_holes.append(inner_point.lat)
+                                lon_point_holes.append(inner_point.lon)
 
-                        inner_hole = zip(lon_point_holes, lat_point_holes)
-                        holes.append(inner_hole)
+                        holes.append(zip(lon_point_holes, lat_point_holes))
 
-                    polygon_geom = Polygon(zip(lon_point_list, lat_point_list), holes)
-                    polygons.append(polygon_geom)
+                    polygons.append(Polygon(zip(lon_polygon_points, lat_polygon_points), holes))
 
                 try:
                     tag_name.append(area.tags['name'])
