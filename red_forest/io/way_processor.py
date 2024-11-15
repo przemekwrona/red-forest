@@ -1,7 +1,7 @@
 import geopandas as gpd
 from shapely import LineString
 
-from red_forest.geometry.file_processor_interface import FileProcessorInterface
+from red_forest.io.file_processor_interface import FileProcessorInterface
 
 
 class WayProcessor(FileProcessorInterface):

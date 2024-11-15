@@ -6,7 +6,7 @@ from unittest import TestCase
 
 from shapely import LineString, Point
 
-from red_forest.geometry.way_processor import WayProcessor
+from red_forest.io.way_processor import WayProcessor
 
 
 class TestWayProcessor(TestCase):

@@ -4,7 +4,7 @@ from unittest import TestCase
 import osmium
 from shapely import Point, Polygon
 
-from red_forest.geometry.area_processor import AreaProcessor
+from red_forest.io.area_processor import AreaProcessor
 
 
 class TestAreaProcessor(TestCase):

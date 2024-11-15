@@ -5,7 +5,7 @@ from unittest import TestCase
 
 from shapely import Point, Polygon, LineString
 
-from red_forest.geometry.file_processor import FileProcessor
+from red_forest.io.file_processor import FileProcessor
 
 
 class TestFileProcessor(TestCase):
