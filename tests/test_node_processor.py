@@ -4,7 +4,7 @@ import osmium
 
 from unittest import TestCase
 from shapely import Point
-from red_forest.geometry.node_processor import NodeProcessor
+from red_forest.io.node_processor import NodeProcessor
 
 
 class TestNodeProcessor(TestCase):

@@ -1,6 +1,6 @@
 import geopandas as gpd
 
-from red_forest.geometry.file_processor_interface import FileProcessorInterface
+from red_forest.io.file_processor_interface import FileProcessorInterface
 
 
 class NodeProcessor(FileProcessorInterface):
@@ -55,3 +55,6 @@ class NodeProcessor(FileProcessorInterface):
                 queries.append(query)
 
         return queries
+
+    def hex(self):
+        pass

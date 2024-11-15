@@ -5,8 +5,9 @@ import h3
 from geojson import Feature, FeatureCollection
 import json
 import matplotlib
-from red_forest.geometry import node_processor, area_processor, way_processor
-from red_forest.geometry.file_processor_interface import FileProcessorInterface
+import os
+from red_forest.io import node_processor, area_processor, way_processor
+from red_forest.io.file_processor_interface import FileProcessorInterface
 
 
 def get_color(custom_cm, val, vmin, vmax):
@@ -47,6 +48,11 @@ class FileProcessor(FileProcessorInterface):
         if config is None:
             config = {}
         self._config = config
+
+        if 'fillColor' not in self._config:
+            if 'color' in self._config:
+                self._config['fillColor'] = self._config['color']
+
         return self
 
     def get_processor(self):
@@ -65,7 +71,7 @@ class FileProcessor(FileProcessorInterface):
         folium_geojson = folium.GeoJson(data=data, style_function=lambda x: self._config)
         folium_geojson.add_to(folium_map)
 
-    def hexagons_dataframe_to_geojson(self, df_hex, file_output=None, column_name="value"):
+    def hexagons_dataframe_to_geojson(self, df_hex, column_name="value"):
         """
         Produce the GeoJSON for a dataframe, constructing the geometry from the "hex_id" column
         and with a property matching the one in column_name
@@ -92,12 +98,14 @@ class FileProcessor(FileProcessorInterface):
         gdf = gdf.assign(hex_id=hex_ids.values)
 
         nodes_by_hex_id = gdf.groupby("hex_id", as_index=False).agg({"geometry": "count"})
-
-        geojson_data = self.hexagons_dataframe_to_geojson(nodes_by_hex_id, column_name='geometry')
+        nodes_by_hex_id["value"] = nodes_by_hex_id["geometry"]
+        geojson_data = self.hexagons_dataframe_to_geojson(nodes_by_hex_id)
 
         min_value = 0
         max_value = nodes_by_hex_id.geometry.max()
-        column_name = 'geometry'
+        print(max_value)
+        max_value = 150
+        column_name = 'value'
         custom_cm = matplotlib.cm.get_cmap('Blues')
 
         border_color = 'black'
